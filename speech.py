@@ -1,10 +1,13 @@
 #!/usr/bin/python3
 """
-This is a fake speech generator. I'm trying to do Python 3.
+This is a fake speech generator with a Mad Libs element. I'm trying to do Python 3.
+The program takes place on the command line.
 
-It should go something like:
+The input: raw_input() for three buzzwords.
 
-{Flag shot|"Hail to the Chief"|"Now for a special announcement from our President"}
+The ouput should go something like:
+
+random choice of {Flag shot|"Hail to the Chief"|"Now for a special announcement from our President"}
 
 My fellow Americans, 
 
@@ -14,7 +17,8 @@ We will achieve this goal by fixing bug number {bug #}, {bug title}, in close co
 
 Thank you, and may God bless {another tech buzzword}.
 
-{Flag shot|"We now return you to your regularly scheduled programming"|Bugle tones}
+random choice of {Flag shot|"We now return you to your regularly scheduled programming"|Bugle tones}
+
 """
 import unittest
 
