@@ -18,21 +18,42 @@ We will achieve this goal by fixing bug number {bug #}, {bug title}, in close co
 Thank you, and may God bless {another tech buzzword}.
 
 random choice of {Flag shot|"We now return you to your regularly scheduled programming"|Bugle tones}
-
 """
+
 import unittest
+
+class CuratedList(object):
+#    def __init__(self):
+#        self.contents = []
+
+    def addToList(self, newitem):
+        # check for empty string
+        # check for non-alpha
+        
+        
+
+def getBuzzwords():
+    buzzwordlist = CuratedList()
+
 
 class item_insertion_test_case(unittest.TestCase):
     def test_valid_item_insertion(self):
-    #Try taking a fake list and make sure that when we insert a new valid item,
+    #Try taking an empty list and make sure that when we insert a new valid item,
     #it works.
-        pass
+        testlist = CuratedList()
+        testitem = "water bottle"
+        expectedresult = ["water bottle"]
+        testlist.addToList(testitem)
+        self.assertEqual(testlist.contents(), expectedresult)    
 
     def test_invalid_item_insertion(self):
-    #Insert an invalid item into a fake list and ensure it gives the right
+    #Insert an invalid item into a list and ensure it gives the right
     #errors: "that's not English" if it's not all alphabetical characters,
     #"try again; what did you mean?" if it's empty. Rerun the raw_input.
-        pass
+        testlist = CuratedList()
+        testnumber = "6"
+        self.assertRaises(Exception, testlist.addToList, testnumber)
+        self.assertRaises(Exception, testlist.addToList, "")
 
 class bug_test_case(unittest.TestCase):
 
