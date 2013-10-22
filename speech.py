@@ -21,44 +21,69 @@ random choice of {Flag shot|"We now return you to your regularly scheduled progr
 """
 
 import unittest
+#from launchpadlib.launchpad import Launchpad
 
 class CuratedList(object):
-#    def __init__(self):
-#        self.contents = []
+    def __init__(self):
+        self.contents = []
 
     def addToList(self, newitem):
         # check for empty string
         # check for non-alpha
-        
-        
+        # in those cases: ValueError
+        # when you're writing the app: catch the error, give an error message per test
+        if newitem == "":
+            raise ValueError("empty string not allowed")
+        elif not newitem.isalpha():
+            raise ValueError("only one word of alphabetical characters allowed in this string")
+        else:
+            self.contents.append(newitem)
 
-def getBuzzwords():
+def getBuzzwordsFromUser():
     buzzwordlist = CuratedList()
-
+    # catch error from CuratedList object, print error msg, try again
+    buzzwordlist.addToList(raw_input("What is the first buzzword you want to insert?"))
+    buzzwordlist.addToList(raw_input("What is the second buzzword you want to insert?"))
+    buzzwordlist.addToList(raw_input("What is the final buzzword you want to insert?"))
+    return buzzwordlist
 
 class item_insertion_test_case(unittest.TestCase):
     def test_valid_item_insertion(self):
     #Try taking an empty list and make sure that when we insert a new valid item,
     #it works.
         testlist = CuratedList()
-        testitem = "water bottle"
-        expectedresult = ["water bottle"]
+        testitem = "bottle"
+        expectedresult = ["bottle"]
         testlist.addToList(testitem)
-        self.assertEqual(testlist.contents(), expectedresult)    
+        self.assertEqual(testlist.contents, expectedresult)    
 
     def test_invalid_item_insertion(self):
     #Insert an invalid item into a list and ensure it gives the right
-    #errors: "that's not English" if it's not all alphabetical characters,
+    #errors: "that's not one English word" if it's not all alphabetical characters,
     #"try again; what did you mean?" if it's empty. Rerun the raw_input.
         testlist = CuratedList()
         testnumber = "6"
-        self.assertRaises(Exception, testlist.addToList, testnumber)
-        self.assertRaises(Exception, testlist.addToList, "")
+        self.assertRaisesRegex(ValueError, ".*word.*", testlist.addToList, testnumber)
+        self.assertRaisesRegex(ValueError, ".*empty.*", testlist.addToList, "")
+
+#def getBugs():
+#    launchpad = Launchpad.login_anonymously('obama-speech-game', 'production')
+#    beautiful_soup = launchpad.projects['beautifulsoup']
+#    bugs = beautiful_soup.searchTasks
+#    return bugs
+#    pass
+
+def insertBugNumber(insertion, template1, template2):
+    pass
 
 class bug_test_case(unittest.TestCase):
 
-    def test_get_bug(self):
-    #Check that we can actually get a bug via the API.
+    def test_get_bugs(self):
+    #Check that we can actually get a JSON collection of bugs via the API.
+        pass
+
+    def test_extract_a_bug(self):
+    #Given a mock JSON collection of bugs, check we can extract a single bug and return it.
         pass
 
     def test_extract_bug_info(self):
@@ -69,7 +94,11 @@ class bug_test_case(unittest.TestCase):
     def test_insert_bug_number(self):
     #Given a mock bug # and a mock template, check that inserting the bug #
     #into the template gives us a template with the bug # filled in.
-        pass
+        bugnumber = "567"
+        template1 = "I know "
+        template2 = " is more important than ever."
+        expectedresult = "I know 567 is more important than ever."
+        self.assertEqual(insertBugNumber(bugnumber, template1, template2), expectedresult)
 
     def test_insert_bug_title(self):
     #Given a mock bug title and a mock template, check that inserting the bug
