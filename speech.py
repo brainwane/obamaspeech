@@ -98,7 +98,7 @@ class bug_test_case(unittest.TestCase):
         pass
 
     def test_extract_a_bug(self):
-    #Given a mock JSON collection of bugs, check we can extract a single bug and return it.
+    #Given a mock collection of bugs, check we can extract a single bug and return it.
         
         pass
 
