@@ -1,6 +1,6 @@
-#!/usr/bin/python3
+#!/usr/bin/python
 """
-This is a fake speech generator with a Mad Libs element. I'm trying to do Python 3.
+This is a fake speech generator with a Mad Libs element.
 The program takes place on the command line.
 
 The input: raw_input() for three buzzwords.
@@ -21,7 +21,8 @@ random choice of {Flag shot|"We now return you to your regularly scheduled progr
 """
 
 import unittest
-#from launchpadlib.launchpad import Launchpad
+import random
+from launchpadlib.launchpad import Launchpad
 
 class CuratedList(object):
     def __init__(self):
@@ -66,12 +67,26 @@ class item_insertion_test_case(unittest.TestCase):
         self.assertRaisesRegex(ValueError, ".*word.*", testlist.addToList, testnumber)
         self.assertRaisesRegex(ValueError, ".*empty.*", testlist.addToList, "")
 
-#def getBugs():
-#    launchpad = Launchpad.login_anonymously('obama-speech-game', 'production')
-#    beautiful_soup = launchpad.projects['beautifulsoup']
-#    bugs = beautiful_soup.searchTasks
-#    return bugs
-#    pass
+def getBugs():
+    launchpad = Launchpad.login_anonymously('obama-speech-game', 'production')
+    bzr = launchpad.projects['bzr']
+    bugs = bzr.searchTasks()
+    return bugs
+
+def chooseBug(bugcollection):
+    #choose a random bug
+    pass
+
+class Bug(object):
+
+    def getBugNumber(self):
+        pass
+
+    def getBugTitle(self):
+        pass
+
+    def getBugReporter(self):
+        pass
 
 def insertBugNumber(insertion, template1, template2):
     pass
@@ -84,21 +99,27 @@ class bug_test_case(unittest.TestCase):
 
     def test_extract_a_bug(self):
     #Given a mock JSON collection of bugs, check we can extract a single bug and return it.
+        
         pass
 
     def test_extract_bug_info(self):
     #Check whether, given a mock bug, we can extract the bug number, title,
     #and reporter name.
-        pass
+        testbug = {"id":1,"title":"bad version number","owner":"Martin Pool"}
+        testnumber = 1
+        testowner = "Martin Pool"
+        testtitle = "bad version number"
+        self.assertEqual(getBugNumber(testbug),testnumber)
+        self.assertEqual(getBugTitle(testbug),testtitle)
+        self.assertEqual(getBugReporter(testbug),testowner)
 
     def test_insert_bug_number(self):
     #Given a mock bug # and a mock template, check that inserting the bug #
     #into the template gives us a template with the bug # filled in.
         bugnumber = "567"
-        template1 = "I know "
-        template2 = " is more important than ever."
+        template = "I know %s is more important than ever."
         expectedresult = "I know 567 is more important than ever."
-        self.assertEqual(insertBugNumber(bugnumber, template1, template2), expectedresult)
+        self.assertEqual(insertBugNumber(bugnumber, template), expectedresult)
 
     def test_insert_bug_title(self):
     #Given a mock bug title and a mock template, check that inserting the bug
