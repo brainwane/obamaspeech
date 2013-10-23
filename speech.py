@@ -100,11 +100,13 @@ class bug_test_case(unittest.TestCase):
         lp.projects = ["bleeber"]
         testproject = lp.projects["bleeber"]
     #Check that we can actually get a collection of bugs via the API. Use launchpadlib testing objects
+    #from /usr/local/lib/python2.7/dist-packages/launchpadlib/testing/launchpad.py .
         pass
 
     def test_extract_a_bug(self):
     #Given a mock collection of bugs, check we can extract a single bug and return it.
-        
+    #Check that it doesn't have a colon and that the encoding is okay. Example:
+    # u'Bug #488670 in Bazaar: "want an option to disable automatic removal of missing files in commit"'
         pass
 
     def test_extract_bug_info(self):
