@@ -23,6 +23,8 @@ random choice of {Flag shot|"We now return you to your regularly scheduled progr
 import unittest
 import random
 from launchpadlib.launchpad import Launchpad
+from launchpadlib.testing.launchpad import FakeLaunchpad, FakeEntry, FakeCollection
+
 
 class CuratedList(object):
     def __init__(self):
@@ -64,8 +66,8 @@ class item_insertion_test_case(unittest.TestCase):
     #"try again; what did you mean?" if it's empty. Rerun the raw_input.
         testlist = CuratedList()
         testnumber = "6"
-        self.assertRaisesRegex(ValueError, ".*word.*", testlist.addToList, testnumber)
-        self.assertRaisesRegex(ValueError, ".*empty.*", testlist.addToList, "")
+        self.assertRaisesRegexp(ValueError, ".*word.*", testlist.addToList, testnumber)
+        self.assertRaisesRegexp(ValueError, ".*empty.*", testlist.addToList, "")
 
 def getBugs():
     launchpad = Launchpad.login_anonymously('obama-speech-game', 'production')
@@ -88,13 +90,16 @@ class Bug(object):
     def getBugReporter(self):
         pass
 
-def insertBugNumber(insertion, template1, template2):
+def insertBugNumber(insertion, template):
     pass
 
 class bug_test_case(unittest.TestCase):
 
     def test_get_bugs(self):
-    #Check that we can actually get a JSON collection of bugs via the API.
+        lp=FakeLaunchpad()
+        lp.projects = ["bleeber"]
+        testproject = lp.projects["bleeber"]
+    #Check that we can actually get a collection of bugs via the API. Use launchpadlib testing objects
         pass
 
     def test_extract_a_bug(self):
