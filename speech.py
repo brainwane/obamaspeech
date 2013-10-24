@@ -94,8 +94,11 @@ def makeBugValues():
     #choose values for a bug by choosing randomly from bug-related lists
     return random.choice(idnums), random.choice(titles), random.choice(owners)
 
-def insertBugNumber(insertion, template):
-    return template % insertion
+def insertThing(insertion, template):
+    if type(insertion) == str:
+        return template % insertion
+    else:
+        return template % str(insertion)
 
 class bug_test_case(unittest.TestCase):
     def test_make_bug(self):
@@ -118,23 +121,14 @@ class bug_test_case(unittest.TestCase):
         self.assertEqual(testbug.getBugReporter(),testowner)
 
     def test_insert_bug_number(self):
-    #Given a mock bug # and a mock template, check that inserting the bug #
-    #into the template gives us a template with the bug # filled in.
-        bugnumber = "567"
+    #Given a mock bug # and mock template, check that inserting the bug # into
+    #the template gives us a template with the bug # stringified and filled in.
+    #All the other insertions (buzzwords, owners, and titles) are already
+    #strings, so I don't expect any trouble with them.
+        bugnumber = 567
         template = "I know %s is more important than ever."
         expectedresult = "I know 567 is more important than ever."
-        self.assertEqual(insertBugNumber(bugnumber, template), expectedresult)
-
-    def test_insert_bug_title(self):
-    #Given a mock bug title and a mock template, check that inserting the bug
-    #title into the template gives us a template with the bug title filled in.
-        pass
-
-    def test_insert_bug_reporter(self):
-    #Given a mock bug reporter and a mock template, check that inserting the
-    #reporter name into the template gives us a template with the bug
-    #reporter's name filled in.
-        pass
+        self.assertEqual(insertThing(bugnumber, template), expectedresult)
 
 class buzzword_test_case(unittest.TestCase):
 
