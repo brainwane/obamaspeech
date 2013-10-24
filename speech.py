@@ -20,7 +20,6 @@ Thank you, and may God bless {another tech buzzword}.
 random choice of {Flag shot|"We now return you to your regularly scheduled programming"|Bugle tones}
 """
 
-import unittest
 import random
 
 openings = ["*Flag shot*","*Hail to the Chief*","Now for a special announcement from our President."]
@@ -50,29 +49,10 @@ class CuratedList(object):
 def getBuzzwordsFromUser():
     buzzwordlist = CuratedList()
     # catch error from CuratedList object, print error msg, try again
-    buzzwordlist.addToList(raw_input("What is the first buzzword you want to insert?"))
-    buzzwordlist.addToList(raw_input("What is the second buzzword you want to insert?"))
-    buzzwordlist.addToList(raw_input("What is the final buzzword you want to insert?"))
+    buzzwordlist.addToList(raw_input("What is the first buzzword you want to insert?" ))
+    buzzwordlist.addToList(raw_input("What is the second buzzword you want to insert?" ))
+    buzzwordlist.addToList(raw_input("What is the final buzzword you want to insert?" ))
     return buzzwordlist
-
-class item_insertion_test_case(unittest.TestCase):
-    def test_valid_item_insertion(self):
-    #Try taking an empty list and make sure that when we insert a new valid item,
-    #it works.
-        testlist = CuratedList()
-        testitem = "bottle"
-        expectedresult = ["bottle"]
-        testlist.addToList(testitem)
-        self.assertEqual(testlist.contents, expectedresult)    
-
-    def test_invalid_item_insertion(self):
-    #Insert an invalid item into a list and ensure it gives the right
-    #errors: "that's not one English word" if it's not all alphabetical characters,
-    #"try again; what did you mean?" if it's empty. Rerun the raw_input.
-        testlist = CuratedList()
-        testnumber = "6"
-        self.assertRaisesRegexp(ValueError, ".*word.*", testlist.addToList, testnumber)
-        self.assertRaisesRegexp(ValueError, ".*empty.*", testlist.addToList, "")
 
 class Bug(dict):
     """a dict with the stuff I need."""
@@ -100,50 +80,9 @@ def insertThing(insertion, template):
     else:
         return template % str(insertion)
 
-class bug_test_case(unittest.TestCase):
-    def test_make_bug(self):
-        #The makeBugValues function is too trivial to test.
-        testnumber = 1
-        testowner = "Martin Pool"
-        testtitle = "bad version number"
-        expectedbug = {"id":1,"title":"bad version number","owner":"Martin Pool"}
-        self.assertEqual(Bug(testnumber,testtitle,testowner),expectedbug)
-
-    def test_extract_bug_info(self):
-    #Check whether, given a mock bug, we can extract the bug number, title,
-    #and reporter name.
-        testbug = Bug(1,"bad version number","Martin Pool")
-        testnumber = 1
-        testowner = "Martin Pool"
-        testtitle = "bad version number"
-        self.assertEqual(testbug.getBugNumber(),testnumber)
-        self.assertEqual(testbug.getBugTitle(),testtitle)
-        self.assertEqual(testbug.getBugReporter(),testowner)
-
-    def test_insert_bug_number(self):
-    #Given a mock bug # and mock template, check that inserting the bug # into
-    #the template gives us a template with the bug # stringified and filled in.
-    #All the other insertions (buzzwords, owners, and titles) are already
-    #strings, so I don't expect any trouble with them.
-        bugnumber = 567
-        template = "I know %s is more important than ever."
-        expectedresult = "I know 567 is more important than ever."
-        self.assertEqual(insertThing(bugnumber, template), expectedresult)
-
-class buzzword_test_case(unittest.TestCase):
-
-    def test_buzzword_grab(self):
-    #Grab a buzzword from the list.
-        pass
-
-    def test_buzzword_insert(self):
-    #Check that the buzzword inserted into the template is the one you 
-    #wanted to insert.
-        pass
-
 def main():
-    unittest.main()
     getBuzzwordsFromUser()
+    bug = Bug(makeBugValues())
 
 if __name__ == "__main__":
     main()
