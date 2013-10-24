@@ -79,19 +79,25 @@ def chooseBug(bugcollection):
     #choose a random bug
     pass
 
-class Bug(object):
+class Bug(dict):
+    """Eventually this should be a real bug object from Launchpad.
+    Right now it is just a dict with the stuff I need."""
+    def __init__(self,i,t,o):
+        self.__setitem__("id",i)
+        self.__setitem__("title",t)
+        self.__setitem__("owner",o)
 
     def getBugNumber(self):
-        pass
+        return self.get["id"]
 
     def getBugTitle(self):
-        pass
+        return self.get["title"]
 
     def getBugReporter(self):
-        pass
+        return self.get["owner"]
 
 def insertBugNumber(insertion, template):
-    pass
+    return template % insertion
 
 class bug_test_case(unittest.TestCase):
 
@@ -109,6 +115,13 @@ class bug_test_case(unittest.TestCase):
     # u'Bug #488670 in Bazaar: "want an option to disable automatic removal of missing files in commit"'
         pass
 
+    def test_make_bug(self):
+        testnumber = 1
+        testowner = "Martin Pool"
+        testtitle = "bad version number"
+        expectedbug = {"id":1,"title":"bad version number","owner":"Martin Pool"}
+        self.assertEqual(Bug(testnumber,testtitle,testowner),expectedbug)
+
     def test_extract_bug_info(self):
     #Check whether, given a mock bug, we can extract the bug number, title,
     #and reporter name.
@@ -116,9 +129,9 @@ class bug_test_case(unittest.TestCase):
         testnumber = 1
         testowner = "Martin Pool"
         testtitle = "bad version number"
-        self.assertEqual(getBugNumber(testbug),testnumber)
-        self.assertEqual(getBugTitle(testbug),testtitle)
-        self.assertEqual(getBugReporter(testbug),testowner)
+        self.assertEqual(testbug.getBugNumber,testnumber)
+        self.assertEqual(testbug.getBugTitle,testtitle)
+        self.assertEqual(testbug.getBugReporter,testowner)
 
     def test_insert_bug_number(self):
     #Given a mock bug # and a mock template, check that inserting the bug #
@@ -158,6 +171,7 @@ class output_test_case(unittest.TestCase):
 
 def main():
     unittest.main()
+    getBuzzwordsFromUser()
 
 if __name__ == "__main__":
     main()
