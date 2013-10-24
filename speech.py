@@ -14,14 +14,14 @@ openings = ["*Flag shot*","*Hail to the Chief*","Now for a special announcement 
 closings = ["*Flag shot*","We now return you to your regularly scheduled programming.","*Bugle tones*"]
 
 # bug-related lists
-idnums = [54, 800, 8983, 5132]
+idnums = [43665, 9497, 49727, 50441, 369404, 48693]
 titles = ["Gadget settings cannot be changed on MediaWiki 1.22wmf4", "Wrong Path Separator in bzr output on Windows","Spam filter not filtering majority of spam to Junk folder","Thumbnails of large PNGs are not generated","Account Creation leaves broken unusable accounts due to VisualEditorHooks::onAddNewAccount","VisualEditor: [Regression] Edit tab points to the oldid not the newid when saving (except for when creating pages)"] 
-owners = ["Mary Rose Cook", "Zach Allaun", "Allison Kaptur"]
+owners = ["Mary Rose Cook", "Zach Allaun", "Allison Kaptur","Alan O'Donnell","Tom Ballinger"]
 
 
 fellow = "\nMy fellow Americans,\n"
 important = "I know %s is more important than ever. That's why I have committed the federal government to implementation of %s within the next 100 days.\n"
-coordinate = "We will achieve this goal by fixing bug number %s, %s, in close coordination with state and local agencies, as well as bug reporter %s.\n"
+coordinate = "We will achieve this goal by fixing bug number %s, \"%s\", in close coordination with state and local agencies, as well as bug reporter %s.\n"
 thank = "Thank you, and may God bless %s.\n"
 
 class CuratedList(object):
@@ -35,7 +35,7 @@ class CuratedList(object):
         # when you're writing the app: catch the error, give an error message per test
         if newitem == "":
             raise ValueError("empty string not allowed")
-        elif not newitem.isalpha():
+        elif not newitem.replace(" ","").isalpha():
             raise ValueError("only one word of alphabetical characters allowed in this string")
         else:
             self.contents.append(newitem)
