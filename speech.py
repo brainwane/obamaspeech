@@ -5,19 +5,7 @@ The program takes place on the command line.
 
 The input: raw_input() for three buzzwords.
 
-The ouput should go something like:
-
-random choice of {Flag shot|"Hail to the Chief"|"Now for a special announcement from our President"}
-
-My fellow Americans, 
-
-I know {tech buzzword} is more important than ever. That's why I have committed the federal government to implementation of {other tech buzzword} within the next 100 days.
-
-We will achieve this goal by fixing bug number {bug #}, {bug title}, in close coordination with state and local agencies, as well as bug reporter {reporter name}.
-
-Thank you, and may God bless {another tech buzzword}.
-
-random choice of {Flag shot|"We now return you to your regularly scheduled programming"|Bugle tones}
+The ouput is text spit out to the user via the console.
 """
 
 import random
@@ -29,6 +17,12 @@ closings = ["*Flag shot*","We now return you to your regularly scheduled program
 idnums = [54, 800, 8983, 5132]
 titles = ["Gadget settings cannot be changed on MediaWiki 1.22wmf4", "Wrong Path Separator in bzr output on Windows","Spam filter not filtering majority of spam to Junk folder","Thumbnails of large PNGs are not generated","Account Creation leaves broken unusable accounts due to VisualEditorHooks::onAddNewAccount","VisualEditor: [Regression] Edit tab points to the oldid not the newid when saving (except for when creating pages)"] 
 owners = ["Mary Rose Cook", "Zach Allaun", "Allison Kaptur"]
+
+
+fellow = "\nMy fellow Americans,\n"
+important = "I know %s is more important than ever. That's why I have committed the federal government to implementation of %s within the next 100 days.\n"
+coordinate = "We will achieve this goal by fixing bug number %s, %s, in close coordination with state and local agencies, as well as bug reporter %s.\n"
+thank = "Thank you, and may God bless %s.\n"
 
 class CuratedList(object):
     def __init__(self):
@@ -86,6 +80,12 @@ def insertThing(insertion, template):
 def main():
     bzlist = getBuzzwordsFromUser()
     bug = Bug(*makeBugValues())
+    print random.choice(openings)
+    print fellow
+    print important % (bzlist.buzzGrab(),bzlist.buzzGrab())
+    print coordinate % (bug.getBugNumber(),bug.getBugTitle(),bug.getBugReporter())
+    print thank % bzlist.buzzGrab()
+    print random.choice(closings)
 
 if __name__ == "__main__":
     main()
