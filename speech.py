@@ -22,9 +22,9 @@ random choice of {Flag shot|"We now return you to your regularly scheduled progr
 
 import unittest
 import random
-from launchpadlib.launchpad import Launchpad
-from launchpadlib.testing.launchpad import FakeLaunchpad, FakeEntry, FakeCollection
 
+openings = ["*Flag shot*","*Hail to the Chief*","Now for a special announcement from our President."]
+closings = ["*Flag shot*","We now return you to your regularly scheduled programming.","*Bugle tones*"]
 
 class CuratedList(object):
     def __init__(self):
@@ -69,19 +69,12 @@ class item_insertion_test_case(unittest.TestCase):
         self.assertRaisesRegexp(ValueError, ".*word.*", testlist.addToList, testnumber)
         self.assertRaisesRegexp(ValueError, ".*empty.*", testlist.addToList, "")
 
-def getBugs():
-    launchpad = Launchpad.login_anonymously('obama-speech-game', 'production')
-    bzr = launchpad.projects['bzr']
-    bugs = bzr.searchTasks()
-    return bugs
-
 def chooseBug(bugcollection):
     #choose a random bug
     pass
 
 class Bug(dict):
-    """Eventually this should be a real bug object from Launchpad.
-    Right now it is just a dict with the stuff I need."""
+    """a dict with the stuff I need."""
     def __init__(self,i,t,o):
         self.__setitem__("id",i)
         self.__setitem__("title",t)
@@ -100,20 +93,6 @@ def insertBugNumber(insertion, template):
     return template % insertion
 
 class bug_test_case(unittest.TestCase):
-
-    def test_get_bugs(self):
-        lp=FakeLaunchpad()
-        lp.projects = ["bleeber"]
-        testproject = lp.projects["bleeber"]
-    #Check that we can actually get a collection of bugs via the API. Use launchpadlib testing objects
-    #from /usr/local/lib/python2.7/dist-packages/launchpadlib/testing/launchpad.py .
-        pass
-
-    def test_extract_a_bug(self):
-    #Given a mock collection of bugs, check we can extract a single bug and return it.
-    #Check that it doesn't have a colon and that the encoding is okay. Example:
-    # u'Bug #488670 in Bazaar: "want an option to disable automatic removal of missing files in commit"'
-        pass
 
     def test_make_bug(self):
         testnumber = 1
