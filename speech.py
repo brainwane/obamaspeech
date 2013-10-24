@@ -147,12 +147,6 @@ class buzzword_test_case(unittest.TestCase):
     #wanted to insert.
         pass
 
-class output_test_case(unittest.TestCase):
-
-    def test_print_to_console(self):
-    #not sure how to test this.
-        pass
-
 def main():
     unittest.main()
     getBuzzwordsFromUser()
