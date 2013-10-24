@@ -46,12 +46,15 @@ class CuratedList(object):
         else:
             self.contents.append(newitem)
 
+    def buzzGrab(self):
+        return random.choice(self.contents)
+
 def getBuzzwordsFromUser():
     buzzwordlist = CuratedList()
     # catch error from CuratedList object, print error msg, try again
-    buzzwordlist.addToList(raw_input("What is the first buzzword you want to insert?" ))
-    buzzwordlist.addToList(raw_input("What is the second buzzword you want to insert?" ))
-    buzzwordlist.addToList(raw_input("What is the final buzzword you want to insert?" ))
+    buzzwordlist.addToList(raw_input("What is the first buzzword you want to insert? "))
+    buzzwordlist.addToList(raw_input("What is the second buzzword you want to insert? "))
+    buzzwordlist.addToList(raw_input("What is the final buzzword you want to insert? "))
     return buzzwordlist
 
 class Bug(dict):
@@ -81,8 +84,8 @@ def insertThing(insertion, template):
         return template % str(insertion)
 
 def main():
-    getBuzzwordsFromUser()
-    bug = Bug(makeBugValues())
+    bzlist = getBuzzwordsFromUser()
+    bug = Bug(*makeBugValues())
 
 if __name__ == "__main__":
     main()

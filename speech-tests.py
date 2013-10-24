@@ -27,6 +27,8 @@ class item_insertion_test_case(unittest.TestCase):
 class bug_test_case(unittest.TestCase):
     def test_make_bug(self):
         #The makeBugValues function is too trivial to test.
+        #Update: Not too trivial to test (it emits a tuple. Who would have
+        #thought this? but anyway that's the only tricky thing.)
         testnumber = 1
         testowner = "Martin Pool"
         testtitle = "bad version number"
@@ -57,13 +59,17 @@ class bug_test_case(unittest.TestCase):
 class buzzword_test_case(unittest.TestCase):
 
     def test_buzzword_grab(self):
-    #Grab a buzzword from the list.
-        pass
+        testlist = CuratedList()
+        testlist.contents = ["NoSQL","distributed"]
+        self.assertIn(testlist.buzzGrab(),testlist.contents)        
 
     def test_buzzword_insert(self):
     #Check that the buzzword inserted into the template is the one you 
     #wanted to insert.
-        pass
+        testword = "NoSQL"
+        template = "I know %s is more important than ever."
+        expectedresult = "I know NoSQL is more important than ever."        
+        self.assertIn(insertThing(testword,template),expectedresult)
 
 def main():
     unittest.main()
