@@ -82,13 +82,13 @@ class Bug(dict):
         self.__setitem__("owner",o)
 
     def getBugNumber(self):
-        return self.get["id"]
+        return self.get("id")
 
     def getBugTitle(self):
-        return self.get["title"]
+        return self.get("title")
 
     def getBugReporter(self):
-        return self.get["owner"]
+        return self.get("owner")
 
 def makeBugValues():
     #choose values for a bug by choosing randomly from bug-related lists
@@ -98,7 +98,6 @@ def insertBugNumber(insertion, template):
     return template % insertion
 
 class bug_test_case(unittest.TestCase):
-
     def test_make_bug(self):
         #The makeBugValues function is too trivial to test.
         testnumber = 1
@@ -110,13 +109,13 @@ class bug_test_case(unittest.TestCase):
     def test_extract_bug_info(self):
     #Check whether, given a mock bug, we can extract the bug number, title,
     #and reporter name.
-        testbug = {"id":1,"title":"bad version number","owner":"Martin Pool"}
+        testbug = Bug(1,"bad version number","Martin Pool")
         testnumber = 1
         testowner = "Martin Pool"
         testtitle = "bad version number"
-        self.assertEqual(testbug.getBugNumber,testnumber)
-        self.assertEqual(testbug.getBugTitle,testtitle)
-        self.assertEqual(testbug.getBugReporter,testowner)
+        self.assertEqual(testbug.getBugNumber(),testnumber)
+        self.assertEqual(testbug.getBugTitle(),testtitle)
+        self.assertEqual(testbug.getBugReporter(),testowner)
 
     def test_insert_bug_number(self):
     #Given a mock bug # and a mock template, check that inserting the bug #
