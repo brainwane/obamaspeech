@@ -26,6 +26,11 @@ import random
 openings = ["*Flag shot*","*Hail to the Chief*","Now for a special announcement from our President."]
 closings = ["*Flag shot*","We now return you to your regularly scheduled programming.","*Bugle tones*"]
 
+# bug-related lists
+idnums = [54, 800, 8983, 5132]
+titles = ["Gadget settings cannot be changed on MediaWiki 1.22wmf4", "Wrong Path Separator in bzr output on Windows","Spam filter not filtering majority of spam to Junk folder","Thumbnails of large PNGs are not generated","Account Creation leaves broken unusable accounts due to VisualEditorHooks::onAddNewAccount","VisualEditor: [Regression] Edit tab points to the oldid not the newid when saving (except for when creating pages)"] 
+owners = ["Mary Rose Cook", "Zach Allaun", "Allison Kaptur"]
+
 class CuratedList(object):
     def __init__(self):
         self.contents = []
@@ -69,10 +74,6 @@ class item_insertion_test_case(unittest.TestCase):
         self.assertRaisesRegexp(ValueError, ".*word.*", testlist.addToList, testnumber)
         self.assertRaisesRegexp(ValueError, ".*empty.*", testlist.addToList, "")
 
-def chooseBug(bugcollection):
-    #choose a random bug
-    pass
-
 class Bug(dict):
     """a dict with the stuff I need."""
     def __init__(self,i,t,o):
@@ -89,12 +90,17 @@ class Bug(dict):
     def getBugReporter(self):
         return self.get["owner"]
 
+def makeBugValues():
+    #choose values for a bug by choosing randomly from bug-related lists
+    return random.choice(idnums), random.choice(titles), random.choice(owners)
+
 def insertBugNumber(insertion, template):
     return template % insertion
 
 class bug_test_case(unittest.TestCase):
 
     def test_make_bug(self):
+        #The makeBugValues function is too trivial to test.
         testnumber = 1
         testowner = "Martin Pool"
         testtitle = "bad version number"
