@@ -46,9 +46,9 @@ class CuratedList(object):
 def getBuzzwordsFromUser():
     buzzwordlist = CuratedList()
     # catch error from CuratedList object, print error msg, try again
-    buzzwordlist.addToList(raw_input("What is the first buzzword you want to insert? "))
-    buzzwordlist.addToList(raw_input("What is the second buzzword you want to insert? "))
-    buzzwordlist.addToList(raw_input("What is the final buzzword you want to insert? "))
+    buzzwordlist.addToList(raw_input("What is the first tech buzzword you want to suggest? "))
+    buzzwordlist.addToList(raw_input("What is the second tech buzzword you want to suggest? "))
+    buzzwordlist.addToList(raw_input("What is the final tech buzzword you want to suggest? "))
     return buzzwordlist
 
 class Bug(dict):
