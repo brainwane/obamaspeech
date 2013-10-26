@@ -10,19 +10,23 @@ So, here you go. Run `speech.py` at a command line and type in three tech buzzwo
 Example:
 
 >$ python speech.py
+
 >What is the first tech buzzword you want to suggest? REST
+
 >What is the second tech buzzword you want to suggest? eventual consistency
+
 >What is the final tech buzzword you want to suggest? Agile
+
 >*Hail to the Chief*
->
+
 >My fellow Americans,
->
+
 >I know Agile is more important than ever. That's why I have committed the federal government to implementation of REST within the next 100 days.
->
+
 >We will achieve this goal by fixing bug number 9497, "Account Creation leaves broken unusable accounts due to VisualEditorHooks::onAddNewAccount", in close coordination with state and local agencies, as well as bug reporter Mary Rose Cook.
->
+
 >Thank you, and may God bless Agile.
->
+
 >*Bugle tones*
 
 
