@@ -1,22 +1,24 @@
 /*This is a fake speech generator with a Mad Libs element.
 The program takes place on the command line.
 
-The input: raw_input() for three buzzwords.
+The input: prompt() for three buzzwords.
 
-The ouput is text spit out to the user via the console.*/
+The ouput is text spit out to the user via page.html in this directory.*/
 
-/*
-data sets of openings, closings, titles, owners, etc. - DONE
+// # Copyright 2013 Sumana Harihareswara
 
-input - way to get buzzwords from user (probably via prompt()) - DONE
+// # This program is free software: you can redistribute it and/or modify
+// # it under the terms of the GNU General Public License as published by
+// # the Free Software Foundation, either version 3 of the License, or
+// # (at your option) any later version.
 
-way to pick randomly from a collection - DONE
+// # This program is distributed in the hope that it will be useful,
+// # but WITHOUT ANY WARRANTY; without even the implied warranty of
+// # MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+// # GNU General Public License for more details.
 
-way to assemble strings into larger string --- concatenation via + - DONE
-
-way to return finished giant string to the user - DONE
-
-*/
+// # You should have received a copy of the GNU General Public License
+// # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 buzz1 = prompt("Enter your first buzzword.");
 buzz2 = prompt("Enter your next tech buzzword.");
