@@ -1,0 +1,31 @@
+html {
+  font-family: sans-serif;
+  -webkit-text-size-adjust: 100%;
+      -ms-text-size-adjust: 100%;
+}
+
+body {
+/*
+built-in HTML tag body
+*/
+  line-height: 1.428571429;
+  color: #0b0504;
+  background-color: #dbd2b4;
+}
+
+#letter {
+/*
+unique ID of a tag, such as form id or div id or in a headline
+*/
+background-color: #ffffff;
+margin: 20px 30px;
+    }
+
+#footer {
+/*
+unique ID of a tag, such as form id or div id or in a headline
+*/
+margin: 20px 30px;
+background-color: #c5bea8;
+float: right;
+    }
