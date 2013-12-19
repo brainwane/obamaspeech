@@ -30,9 +30,9 @@ openings = ["*Flag shot*","*Hail to the Chief*","Now for a special announcement 
 closings = ["*Flag shot*","We now return you to your regularly scheduled programming.","*Bugle tones*"]
 
 # bug-related lists
-idnums = [43665, 9497, 49727, 50441, 369404, 48693]
-titles = ["Gadget settings cannot be changed on MediaWiki 1.22wmf4", "Wrong Path Separator in bzr output on Windows","Spam filter not filtering majority of spam to Junk folder","Thumbnails of large PNGs are not generated","Account Creation leaves broken unusable accounts due to VisualEditorHooks::onAddNewAccount","VisualEditor: [Regression] Edit tab points to the oldid not the newid when saving (except for when creating pages)"] 
-owners = ["Mary Rose Cook", "Zach Allaun", "Allison Kaptur","Alan O'Donnell","Tom Ballinger"]
+idnums = [43665, 9497, 49727, 50441, 369404, 48693] # real bug numbers from my browser history
+titles = ["Gadget settings cannot be changed on MediaWiki 1.22wmf4", "Wrong Path Separator in bzr output on Windows","Spam filter not filtering majority of spam to Junk folder","Thumbnails of large PNGs are not generated","Account Creation leaves broken unusable accounts due to VisualEditorHooks::onAddNewAccount","VisualEditor: [Regression] Edit tab points to the oldid not the newid when saving (except for when creating pages)"] # names of real bugs from my browser history
+owners = ["Mary Rose Cook", "Zach Allaun", "Allison Kaptur","Alan O'Donnell","Tom Ballinger"] # names of facilitators at Hacker School
 
 
 fellow = "\nMy fellow Americans,\n"
