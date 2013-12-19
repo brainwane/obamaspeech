@@ -51,37 +51,6 @@ function choose(collection) {
 }
 
 
-// function assemble() {
-//     // choose certain things from each collection
-//     // return dictionary
-//     var choices = new Object();
-//     choices.open = choose(openings);
-//     choices.buzza = choose(buzzwords);
-//     choices.buzzb = choose(buzzwords);
-//     choices.buzzc = choose(buzzwords);
-//     choices.bug = choose(idnums);
-//     choices.title = choose(titles);
-//     choices.reporter = choose(owners);
-//     choices.close = choose(closings);
-//     function interpolate(words, template) {
-//     // interpolates words into template in a particular order
-//     // takes obj of words (that is length 1 fewer than the # of elements in template)
-// 	var resultstring = ""
-// 	resultstring += words.open
-// 	resultstring += template[0] + words.buzza
-// 	resultstring += template[1] + words.buzzb
-// 	resultstring += template[2] + words.bug
-// 	resultstring += template[3] + words.title
-// 	resultstring += template[4] + words.reporter
-// 	resultstring += template[5] + words.buzzc
-// 	resultstring += template[6] + words.close
-// 	return resultstring
-//     }
-//     return interpolate(choices, template);
-// }
-
-// console.log(assemble());
-
 function interpolate(replacements, template){
     // for i in template.length,
     // print template[i] + replacements[i]
