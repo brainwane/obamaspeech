@@ -1,7 +1,7 @@
 /*This is a fake speech generator with a Mad Libs element.
 The program takes place on the command line.
 
-The input: prompt() for three buzzwords.
+The input: page.html grabs text inputs for three buzzwords.
 
 The ouput is text spit out to the user via page.html in this directory.*/
 
