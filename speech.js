@@ -30,7 +30,7 @@ titles = ["Gadget settings cannot be changed on MediaWiki 1.22wmf4", "Wrong Path
 owners = ["Mary Rose Cook", "Zach Allaun", "Allison Kaptur","Alan O'Donnell","Tom Ballinger"]; // names of facilitators at Hacker School
 
 
-template = ["<br>My fellow Americans,<br> I know ", " is more important than ever. That's why I have committed the federal government to implementation of ", " within the next 100 days.<br> We will achieve this goal by fixing bug number ", ", \"", "\", in close coordination with state and local agencies, as well as bug reporter ", "<br>Thank you, and may God bless ", ".<br><br>"];
+template = ["<br>My fellow Americans,<br> I know ", " is more important than ever. That's why I have committed the federal government to implementation of ", " within the next 100 days.<br> We will achieve this goal by fixing bug number ", ", \"", "\", in close coordination with state and local agencies, as well as bug reporter ", ".<br>Thank you, and may God bless ", ".<br><br>"];
 
 // openingtemplate = []
 myfellowtemplate = ["My fellow Americans,"]
