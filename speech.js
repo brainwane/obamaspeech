@@ -20,15 +20,6 @@ The ouput is text spit out to the user via page.html in this directory.*/
 // # You should have received a copy of the GNU General Public License
 // # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-buzz1 = prompt("Enter your first buzzword.");
-buzz2 = prompt("Enter your next tech buzzword.");
-buzz3 = prompt("Enter your final silly buzzword.");
-
-// buzz1 = "NoSQL";
-// buzz2 = "cloud data";
-// buzz3 = "computational complexity";
-
-buzzwords = [buzz1, buzz2, buzz3];
 
 openings = ["*Flag shot*","*Hail to the Chief*","Now for a special announcement from our President."];
 closings = ["*Flag shot*","We now return you to your regularly scheduled programming.","*Bugle tones*"];
@@ -70,7 +61,6 @@ function interpolate(replacements, template){
     return resultstring;
 }
 
-var array = [openings, buzzwords, buzzwords, idnums, titles, owners, buzzwords, closings];
 
 function makechoices(collections) {
     // for each list (which is an item in collections), return a random choice
@@ -80,12 +70,18 @@ function makechoices(collections) {
     return list;
 }
 
-function loading() {
-    replacements = makechoices(array);
-    result = document.getElementById("blessing");
-    result.innerHTML = interpolate(replacements, template);
-}
-
-window.onload = loading;
-// var open = document.getElementById("opening");
-// open.innerText = choose(openings);
+$( document ).ready(function() {
+    $("button").click(function( event) {
+	// alert( "You clicked a button!" );
+	$( "#userinput" ).hide(  );
+	console.log($( "#buzzword1" ).val());
+	var buzz1 = $( "#buzzword1" ).val();
+	var buzz2 = $( "#buzzword2" ).val();
+	var buzz3 = $( "#buzzword3" ).val();
+	var buzzwords = [buzz1, buzz2, buzz3];
+	var array = [openings, buzzwords, buzzwords, idnums, titles, owners, buzzwords, closings];
+	var replacements = makechoices(array);
+	var address = interpolate(replacements, template);
+	$("#howtoachieve").html(address);
+    });
+});
