@@ -33,10 +33,10 @@ owners = ["Mary Rose Cook", "Zach Allaun", "Allison Kaptur","Alan O'Donnell","To
 template = ["<br>My fellow Americans,<br> I know ", " is more important than ever. That's why I have committed the federal government to implementation of ", " within the next 100 days.<br> We will achieve this goal by fixing bug number ", ", \"", "\", in close coordination with state and local agencies, as well as bug reporter ", ".<br>Thank you, and may God bless ", ".<br><br>"];
 
 // openingtemplate = []
-myfellowtemplate = ["My fellow Americans,"]
-commitmenttemplate = ["I know ", " is more important than ever. That's why I have committed the federal government to implementation of ", " within the next 100 days."]
-howtoachievetemplate = ["We will achieve this goal by fixing bug number ", ", \"", "\", in close coordination with state and local agencies, as well as bug reporter ", "."]
-blessingtemplate = ["Thank you, and may God bless ", "."]
+// myfellowtemplate = ["My fellow Americans,"]
+// commitmenttemplate = ["I know ", " is more important than ever. That's why I have committed the federal government to implementation of ", " within the next 100 days."]
+// howtoachievetemplate = ["We will achieve this goal by fixing bug number ", ", \"", "\", in close coordination with state and local agencies, as well as bug reporter ", "."]
+// blessingtemplate = ["Thank you, and may God bless ", "."]
 // closingtemplate = []
 
 function choose(collection) {
