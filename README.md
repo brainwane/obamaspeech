@@ -1,4 +1,4 @@
-**[Command-line verion](#command-line-version)** |
+**[Command-line version](#command-line-version)** |
 **[Web version](#web-version)** |
 **[Change it up](#change-it-up)**
 
