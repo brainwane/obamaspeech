@@ -51,3 +51,5 @@ You could add:
 1. An API call to a real bug tracker to get the titles, bug IDs, and reporter names for real live open bugs. (I was trying to do this originally, then gave up for expediency's sake. The point of the original exercise was learning TDD, not learning Bugzilla's or Launchpad's API.)
 1. Better placement or better-than-random usage of the buzzwords.
 1. More or better openings and closings.
+
+[![No Maintenance Intended](http://unmaintained.tech/badge.svg)](http://unmaintained.tech/)
