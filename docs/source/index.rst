@@ -13,6 +13,7 @@ This is a test project.
    :caption: Contents:
 
    loremipsum
+   avenue
 
 
 Indices and tables
